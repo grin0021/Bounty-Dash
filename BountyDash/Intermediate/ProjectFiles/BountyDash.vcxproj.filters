@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\BountyDash.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{39503012-DB49-4718-9EC6-C103FE80BC88}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\BountyDash.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\BountyDashEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{6F2877BA-AA3B-4EB8-AE2E-3950DBF141A5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\BountyDash">
+      <UniqueIdentifier>{1538986E-20F2-4382-9335-54EAFF1DD636}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\BountyDash\BountyDash.Build.cs">
+      <Filter>Source\BountyDash</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\BountyDash\BountyDash.cpp">
+      <Filter>Source\BountyDash</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BountyDash\BountyDash.h">
+      <Filter>Source\BountyDash</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\BountyDash\BountyDashGameModeBase.cpp">
+      <Filter>Source\BountyDash</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\BountyDash\BountyDashGameModeBase.h">
+      <Filter>Source\BountyDash</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
