@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"D:\\Unreal\\Bounty Dash\\BountyDash\\Source\\BountyDash\\BountyDash.Build.cs",
-		"D:\\Unreal\\Bounty Dash\\BountyDash\\Source\\BountyDash.Target.cs",
-		"D:\\Unreal\\Bounty Dash\\BountyDash\\Source\\BountyDashEditor.Target.cs"
-	],
-	"EngineVersion": "4.27.2"
-}

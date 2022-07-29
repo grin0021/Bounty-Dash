@@ -1,2 +1,0 @@
-D:\Unreal\Bounty Dash\BountyDash\Intermediate\Build\Win64\UE4Editor\Development\BountyDash\Definitions.BountyDash.h
-D:\Unreal\Bounty Dash\BountyDash\Source\BountyDash\BountyDash.h
