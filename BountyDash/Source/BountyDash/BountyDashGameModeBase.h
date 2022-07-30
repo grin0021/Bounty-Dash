@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(minimalapi)
+UCLASS()
 class BOUNTYDASH_API ABountyDashGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
