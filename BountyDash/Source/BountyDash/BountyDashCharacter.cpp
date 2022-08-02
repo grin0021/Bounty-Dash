@@ -11,6 +11,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "BountyDashGameModeBase.h"
+#include "Coin.h"
 
 // Sets default values
 ABountyDashCharacter::ABountyDashCharacter()
@@ -107,6 +108,12 @@ void ABountyDashCharacter::Tick(float DeltaTime)
 			SetActorLocation(FMath::Lerp(GetActorLocation(), targetLoc, CharSpeed * DeltaTime));
 		}
 	}
+
+	if (bBeingPushed)
+	{
+		float gameSpeed = GetCustomGameMode<ABountyDashGameModeBase>(GetWorld())->GetInvGameSpeed();
+		AddActorLocalOffset(FVector(gameSpeed, 0.0f, 0.0f));
+	}
 }
 
 // Called to bind functionality to input
@@ -148,15 +155,35 @@ void ABountyDashCharacter::MoveLeft()
 
 void ABountyDashCharacter::MyOnComponentBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	if (OtherActor->GetClass()->IsChildOf(AObstacle::StaticClass()))
+	{
+		FVector vecBetween = OtherActor->GetActorLocation() - GetActorLocation();
 
+		float angleBetween = FMath::Acos(FVector::DotProduct(vecBetween.GetSafeNormal(), GetActorForwardVector().GetSafeNormal()));
+		angleBetween *= (180 / PI);
+
+		if (OtherActor->GetClass()->IsChildOf(ACoin::StaticClass()))
+		{
+			ScoreUp();
+			GetWorld()->DestroyActor(OtherActor);
+		}
+		else if (angleBetween < 60.0f)
+		{
+			bBeingPushed = true;
+		}
+	}
 }
 
 void ABountyDashCharacter::MyOnComponentEndOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-
+	if (OtherActor->GetClass()->IsChildOf(AObstacle::StaticClass()))
+	{
+		bBeingPushed = false;
+	}
 }
 
 void ABountyDashCharacter::ScoreUp()
 {
-
+	Score++;
+	GetCustomGameMode<ABountyDashGameModeBase>(GetWorld())->CharScoreUp(Score);
 }
